@@ -1,0 +1,23 @@
+.login {
+  background-color: white;
+  padding: 15px;
+  color: #00028a;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  text-align: left;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.login_button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh;
+}

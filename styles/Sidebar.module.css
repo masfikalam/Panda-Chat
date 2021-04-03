@@ -1,0 +1,54 @@
+.sidebar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #00028a;
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.menu_item {
+  padding: 0 30px 0 20px;
+}
+
+.menu_text {
+  display: flex;
+  color: #00028a;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.search_field {
+  width: 100%;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.form_control {
+  padding: 0 20px;
+  width: 90%;
+}
+
+.new_chat {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  max-width: 500px;
+  padding: 0 20px;
+}
