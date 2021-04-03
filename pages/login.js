@@ -1,8 +1,9 @@
-import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
+// import Panda from "../assets/panda.png";
 import { Button } from "@material-ui/core";
-import styles from "../styles/Login.module.css";
 import { auth, provider } from "../firebase";
+import styles from "../styles/Login.module.css";
 
 const Login = () => {
   // sign in in with google
@@ -17,18 +18,20 @@ const Login = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.title}>
-        <Link href="/">
-          <h5 style={{ margin: "0", fontSize: "22px" }}>Panda Chat</h5>
-        </Link>
+      <div className="texts">
+        <h1 className={styles.title}>Panda Chat</h1>
+        <p className={styles.slogan}>Don't be racist, be like Panda</p>
       </div>
 
-      <div className={styles.login_button}>
-        <h3>Sign in with Google</h3>
-        <Button onClick={GoogleSignin} variant="outlined" color="primary">
-          Sign in
-        </Button>
-      </div>
+      <Image src="/imgs/panda.png" height={400} width={200} alt="Panda" />
+
+      <button
+        type="button"
+        className={styles.login_button}
+        onClick={GoogleSignin}
+      >
+        Sign in
+      </button>
     </section>
   );
 };

@@ -1,23 +1,33 @@
 .login {
-  background-color: white;
-  padding: 15px;
-  color: #00028a;
+  display: flex;
+  flex-direction: column;
+  background-color: #15202b;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  position: sticky;
-  top: 0;
+  min-height: 100vh;
 }
 
 .title {
-  text-align: left;
-  cursor: pointer;
-  margin-left: 10px;
+  margin-bottom: 0;
+  font-size: 40px;
+  color: #17bf63;
+  font-family: "Satisfy", cursive;
+}
+
+.slogan {
+  color: white;
+  font-size: 20px;
+  font-family: "Rubik", sans-serif;
 }
 
 .login_button {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  min-height: 70vh;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #15202b;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #17bf63;
+  font-family: "Satisfy", cursive;
 }

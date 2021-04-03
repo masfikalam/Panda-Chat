@@ -1,3 +1,7 @@
+import styles from "../styles/Sidebar.module.css";
+import Header from "../components/Header";
+import { useState } from "react";
+import Head from "next/head";
 import {
   Button,
   FormControl,
@@ -5,10 +9,6 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-import styles from "../styles/Sidebar.module.css";
-import Header from "../components/Header";
-import { useState } from "react";
-import Head from "next/head";
 
 const newChat = () => {
   const [name, setname] = useState("");
