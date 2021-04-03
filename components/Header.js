@@ -1,12 +1,12 @@
-import Link from "next/link";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import SettingsIcon from "@material-ui/icons/Settings";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import styles from "../styles/Sidebar.module.css";
+import styles from "../styles/Header.module.css";
 import FaceIcon from "@material-ui/icons/Face";
-import { useState } from "react";
 import { auth } from "../firebase";
+import { useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -17,37 +17,14 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.sidebar}>
-      <div className={styles.title}>
-        <Link href="/">
-          <h5 style={{ margin: "0", fontSize: "22px" }}>Panda Chat</h5>
-        </Link>
-      </div>
+    <header className={styles.header}>
+      <Link href="/">
+        <h5 className={styles.title}>Panda Chat</h5>
+      </Link>
 
-      <div className="more">
-        <Link href="/new">
-          <IconButton
-            style={{
-              fontSize: "30px",
-              cursor: "pointer",
-              color: "#00028a",
-            }}
-          >
-            <PersonAddIcon />
-          </IconButton>
-        </Link>
-
-        <IconButton
-          onClick={(e) => setAnchorEl(e.currentTarget)}
-          style={{
-            fontSize: "30px",
-            cursor: "pointer",
-            color: "#00028a",
-          }}
-        >
-          <MoreVertIcon />
-        </IconButton>
-      </div>
+      <IconButton onClick={(e) => setAnchorEl(e.currentTarget)}>
+        <MoreVertIcon className={styles.dots} />
+      </IconButton>
 
       <Menu
         keepMounted
@@ -64,6 +41,16 @@ const Header = () => {
             </span>
           </Link>
         </MenuItem>
+
+        <MenuItem className={styles.menu_item}>
+          <Link href="/settings">
+            <span className={styles.menu_text}>
+              <SettingsIcon style={{ marginRight: "10px" }} />
+              Settings
+            </span>
+          </Link>
+        </MenuItem>
+
         <MenuItem onClick={googleSignOut} className={styles.menu_item}>
           <span className={styles.menu_text}>
             <ExitToAppIcon style={{ marginRight: "10px" }} />

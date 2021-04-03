@@ -1,0 +1,30 @@
+.new_chat_box {
+  color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  max-width: 500px;
+  padding: 0 20px;
+}
+
+.form_control {
+  background-color: #15202b;
+  margin-top: 20px !important;
+  padding: 0 20px;
+  width: 90%;
+}
+
+.select_field {
+  color: white !important;
+  border-bottom: 2px solid #17bf63 !important;
+  padding: 0 15px;
+}
+
+.start_btn {
+  background: #17bf63 !important;
+  margin-top: 50px !important;
+}

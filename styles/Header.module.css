@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #17bf63;
+  position: sticky;
+  padding: 10px 20px;
+  top: 0;
+}
+
+.title {
+  margin: 0;
+  cursor: pointer;
+  font-size: 25px;
+  color: #17bf63;
+  font-family: "Satisfy", cursive;
+}
+
+.dots {
+  color: #17bf63;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.menu_item {
+  padding: 0 30px 0 20px;
+}
+
+.menu_text {
+  display: flex;
+  color: #15202b;
+}

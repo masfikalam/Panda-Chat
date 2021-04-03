@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-// import Panda from "../assets/panda.png";
 import { Button } from "@material-ui/core";
 import { auth, provider } from "../firebase";
 import styles from "../styles/Login.module.css";
