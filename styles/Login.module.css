@@ -15,6 +15,7 @@
 }
 
 .slogan {
+  margin-top: 0;
   color: white;
   font-size: 20px;
 }
@@ -24,8 +25,10 @@
   font-size: 20px;
   cursor: pointer;
   color: #15202b;
-  padding: 10px 20px;
+  font-weight: bold;
+  padding: 10px 30px;
   border-radius: 10px;
+  margin-bottom: 50px;
   background-color: #17bf63;
   font-family: "Satisfy", cursive;
 }

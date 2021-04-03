@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Button } from "@material-ui/core";
 import { auth, provider } from "../firebase";
 import styles from "../styles/Login.module.css";
 
@@ -31,6 +30,13 @@ const Login = () => {
       >
         Sign in
       </button>
+
+      <small style={{ color: "white" }}>
+        <a href="https://masfikul-alam.web.app/" target="_blank">
+          Masfik
+        </a>{" "}
+        &copy; {new Date().getFullYear()}
+      </small>
     </section>
   );
 };
