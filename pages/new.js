@@ -41,7 +41,8 @@ const newChat = () => {
   // check if already exists
   const alreadyExists = (email) => {
     const bool = !!chatSnapshot?.docs.find(
-      (chat) => chat.data().users.find((user) => user === email)?.length > 0
+      (chat) =>
+        chat.data().users.find((user) => user.email === email)?.length > 0
     );
 
     return bool;
@@ -50,9 +51,14 @@ const newChat = () => {
   // create chat
   const createChat = (obj) => {
     if (!alreadyExists(obj.email)) {
-      db.collection("chats").add({
-        users: [user.email, obj.email],
-      });
+      const newChat = {
+        users: [
+          { name: user.displayName, email: user.email },
+          { name: obj.name, email: obj.email },
+        ],
+      };
+
+      db.collection("chats").add(newChat);
     }
   };
 
@@ -68,7 +74,7 @@ const newChat = () => {
       <div className={styles.new_chat_box}>
         <h3>Start New Chat</h3>
 
-        {users.length > 0 ? (
+        {users.length > 0 && (
           <FormControl className={styles.form_control}>
             <InputLabel id="user_name-label" style={{ color: "white" }}>
               Select Recipient
@@ -93,10 +99,6 @@ const newChat = () => {
               ))}
             </Select>
           </FormControl>
-        ) : (
-          <p style={{ color: "#17bf63", marginTop: "30px" }}>
-            Sorry! You are the only user till now.
-          </p>
         )}
 
         {chat.id && (

@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import Link from "next/link";
 
-const ChatBox = ({ id, data, styles }) => {
+const ChatBox = ({ data, styles }) => {
   const [user] = useAuthState(auth);
   const [details, setDetails] = useState({});
-  const queryEmail = data.users.find((email) => email !== user.email);
+  const { email: queryEmail } = data.users.find(
+    (person) => person.email !== user.email
+  );
 
   // load that persons details
   useEffect(async () => {
@@ -24,7 +26,7 @@ const ChatBox = ({ id, data, styles }) => {
 
   return (
     <IconButton className={styles.cover}>
-      <Link href={`/${id}`}>
+      <Link href={`/${data.id}`}>
         <div className={styles.box}>
           <img
             className={styles.photo}
@@ -34,7 +36,7 @@ const ChatBox = ({ id, data, styles }) => {
 
           <div className={styles.text}>
             <h4 style={{ margin: "0", fontSize: "18px" }}>{details.name}</h4>
-            <small style={{ color: "#17bf63" }}>active 50 seconds ago</small>
+            <small style={{ color: "#17bf63" }}>4:40 PM</small>
           </div>
 
           <p className={styles.status}>
