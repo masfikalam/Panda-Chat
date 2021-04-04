@@ -3,12 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/Sidebar.module.css";
 import EditIcon from "@material-ui/icons/Edit";
 import { Search } from "@material-ui/icons";
-import { useEffect, useState } from "react";
 import { Fab } from "@material-ui/core";
 import { auth, db } from "../firebase";
+import { useState } from "react";
+import ChatBox from "./ChatBox";
 import Header from "./Header";
 import Link from "next/link";
-import ChatBox from "./ChatBox";
 
 const Sidebar = () => {
   const [user] = useAuthState(auth);
@@ -51,7 +51,92 @@ const Sidebar = () => {
       </div>
 
       {chatSnapshot?.docs.map((chat) => (
-        <ChatBox key={chat.id} id={chat.id} data={chat.data()} />
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
+      ))}
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox
+          key={chat.id}
+          id={chat.id}
+          data={chat.data()}
+          styles={styles}
+        />
       ))}
     </aside>
   );

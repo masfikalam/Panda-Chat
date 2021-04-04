@@ -1,12 +1,13 @@
 .header {
+  top: 0;
+  z-index: 3;
   display: flex;
-  padding: 10px 20px;
-  background-color: #15202b;
-  justify-content: space-between;
-  align-items: center;
   color: #17bf63;
   position: sticky;
-  top: 0;
+  padding: 10px 20px;
+  align-items: center;
+  background-color: #15202b;
+  justify-content: space-between;
 }
 
 .title {
