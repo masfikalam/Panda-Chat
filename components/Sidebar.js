@@ -2,10 +2,10 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/Sidebar.module.css";
 import EditIcon from "@material-ui/icons/Edit";
-import { Search } from "@material-ui/icons";
-import { Fab, IconButton } from "@material-ui/core";
-import { auth, db } from "../firebase";
 import { useEffect, useState } from "react";
+import { Search } from "@material-ui/icons";
+import { Fab } from "@material-ui/core";
+import { auth, db } from "../firebase";
 import ChatBox from "./ChatBox";
 import Header from "./Header";
 import Link from "next/link";
@@ -20,7 +20,6 @@ const Sidebar = () => {
   });
   const [chatSnapshot] = useCollection(chatRef);
 
-  // load users
   useEffect(() => {
     const allChats = chatSnapshot?.docs.map((chat) => {
       return {
@@ -30,7 +29,7 @@ const Sidebar = () => {
     });
 
     setUsers(allChats);
-  }, []);
+  }, [user]);
 
   return (
     <aside>
@@ -57,15 +56,25 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      {users &&
+      {users ? (
         // filtering data with name
+        users.map((chat) => (
+          <ChatBox key={chat.id} data={chat} styles={styles} />
+        ))
+      ) : (
+        <p style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}>
+          Loading Chats...
+        </p>
+      )}
+
+      {/* {users &&
         users
           .filter((chat) =>
             chat.users.find((person) =>
               person.name.toLowerCase().includes(term.toLowerCase())
             )
           )
-          .map((chat) => <ChatBox key={chat.id} data={chat} styles={styles} />)}
+          .map((chat) => <ChatBox key={chat.id} data={chat} styles={styles} />)} */}
     </aside>
   );
 };

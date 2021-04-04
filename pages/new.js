@@ -4,9 +4,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/NewChat.module.css";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import { useRouter } from "next/router";
 import { auth, db } from "../firebase";
 import Head from "next/head";
-import Link from "next/link";
 import {
   Button,
   FormControl,
@@ -16,12 +16,14 @@ import {
 } from "@material-ui/core";
 
 const newChat = () => {
+  const router = useRouter();
   const [user] = useAuthState(auth);
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState({});
-  const chatRef = db
-    .collection("chats")
-    .where("users", "array-contains", user.email);
+  const chatRef = db.collection("chats").where("users", "array-contains", {
+    email: user.email,
+    name: user.displayName,
+  });
   const [chatSnapshot] = useCollection(chatRef);
 
   // const loading all users
@@ -29,8 +31,8 @@ const newChat = () => {
     const snapshot = await db.collection("users").get();
     const allUsers = snapshot.docs.map((doc) => {
       return {
-        ...doc.data(),
         id: doc.id,
+        ...doc.data(),
       };
     });
     const otherUsers = allUsers.filter((others) => others.email !== user.email);
@@ -41,8 +43,8 @@ const newChat = () => {
   // check if already exists
   const alreadyExists = (email) => {
     const bool = !!chatSnapshot?.docs.find(
-      (chat) =>
-        chat.data().users.find((user) => user.email === email)?.length > 0
+      (chat) => chat.data().users.find((user) => user.email === email)
+      // ?.length > 0
     );
 
     return bool;
@@ -60,6 +62,8 @@ const newChat = () => {
 
       db.collection("chats").add(newChat);
     }
+
+    router.push(`/${obj.id}`);
   };
 
   return (
