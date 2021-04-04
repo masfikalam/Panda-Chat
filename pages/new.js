@@ -25,19 +25,17 @@ const newChat = () => {
   const [chatSnapshot] = useCollection(chatRef);
 
   // const loading all users
-  useEffect(() => {
-    setUsers([
-      {
-        name: "Masfikul Alam",
-        email: "masfik@gmail.com",
-        id: 2425,
-      },
-      {
-        name: "Towfikul Alam",
-        email: "towfik@gmail.com",
-        id: 2913,
-      },
-    ]);
+  useEffect(async () => {
+    const snapshot = await db.collection("users").get();
+    const allUsers = snapshot.docs.map((doc) => {
+      return {
+        ...doc.data(),
+        id: doc.id,
+      };
+    });
+    const otherUsers = allUsers.filter((others) => others.email !== user.email);
+
+    setUsers(otherUsers);
   }, []);
 
   // check if already exists
@@ -70,21 +68,20 @@ const newChat = () => {
       <div className={styles.new_chat_box}>
         <h3>Start New Chat</h3>
 
-        <FormControl className={styles.form_control}>
-          <InputLabel id="user_name-label" style={{ color: "white" }}>
-            Select Recipient
-          </InputLabel>
+        {users.length > 0 ? (
+          <FormControl className={styles.form_control}>
+            <InputLabel id="user_name-label" style={{ color: "white" }}>
+              Select Recipient
+            </InputLabel>
 
-          <Select
-            required
-            value={chat.name ? chat.name : ""}
-            id="user_name"
-            labelId="user_name-label"
-            className={styles.select_field}
-          >
-            {users
-              // .filter(others => others.email !== user.email)
-              .map((user) => (
+            <Select
+              required
+              value={chat.name ? chat.name : ""}
+              id="user_name"
+              labelId="user_name-label"
+              className={styles.select_field}
+            >
+              {users.map((user) => (
                 <MenuItem
                   key={user.id}
                   className={styles.menu_item}
@@ -94,8 +91,13 @@ const newChat = () => {
                   {user.name}
                 </MenuItem>
               ))}
-          </Select>
-        </FormControl>
+            </Select>
+          </FormControl>
+        ) : (
+          <p style={{ color: "#17bf63", marginTop: "30px" }}>
+            Sorry! You are the only user till now.
+          </p>
+        )}
 
         {chat.id && (
           // <Link href={`/${chat.id}`}>
