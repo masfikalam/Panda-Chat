@@ -19,14 +19,17 @@ const ChatBox = ({ data, styles }) => {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          setDetails(doc.data());
+          setDetails({
+            id: doc.id,
+            ...doc.data(),
+          });
         });
       });
   }, []);
 
   return (
-    <IconButton className={styles.cover}>
-      <Link href={`/${data.id}`}>
+    <Link href={`/${details.id}`}>
+      <IconButton className={styles.cover}>
         <div className={styles.box}>
           <img
             className={styles.photo}
@@ -43,8 +46,8 @@ const ChatBox = ({ data, styles }) => {
             <DoneAllIcon style={{ fontSize: "16px" }} />
           </p>
         </div>
-      </Link>
-    </IconButton>
+      </IconButton>
+    </Link>
   );
 };
 

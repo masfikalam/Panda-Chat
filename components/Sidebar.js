@@ -13,23 +13,20 @@ import Link from "next/link";
 const Sidebar = () => {
   const [user] = useAuthState(auth);
   const [term, setTerm] = useState("");
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+
+  // loading user data
   const chatRef = db.collection("chats").where("users", "array-contains", {
     email: user.email,
     name: user.displayName,
   });
   const [chatSnapshot] = useCollection(chatRef);
-
-  useEffect(() => {
-    const allChats = chatSnapshot?.docs.map((chat) => {
-      return {
-        id: chat.id,
-        ...chat.data(),
-      };
-    });
-
-    setUsers(allChats);
-  }, [user]);
+  const users = chatSnapshot?.docs.map((doc) => {
+    return {
+      id: doc.id,
+      ...doc.data(),
+    };
+  });
 
   return (
     <aside>
@@ -57,24 +54,18 @@ const Sidebar = () => {
       </div>
 
       {users ? (
-        // filtering data with name
-        users.map((chat) => (
-          <ChatBox key={chat.id} data={chat} styles={styles} />
-        ))
-      ) : (
-        <p style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}>
-          Loading Chats...
-        </p>
-      )}
-
-      {/* {users &&
         users
           .filter((chat) =>
             chat.users.find((person) =>
               person.name.toLowerCase().includes(term.toLowerCase())
             )
           )
-          .map((chat) => <ChatBox key={chat.id} data={chat} styles={styles} />)} */}
+          .map((chat) => <ChatBox key={chat.id} data={chat} styles={styles} />)
+      ) : (
+        <p style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}>
+          Loading Chats...
+        </p>
+      )}
     </aside>
   );
 };

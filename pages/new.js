@@ -106,7 +106,6 @@ const newChat = () => {
         )}
 
         {chat.id && (
-          // <Link href={`/${chat.id}`}>
           <Button
             type="submit"
             variant="outlined"
@@ -115,7 +114,6 @@ const newChat = () => {
           >
             Start <DoubleArrowIcon />
           </Button>
-          // </Link>
         )}
       </div>
     </section>
