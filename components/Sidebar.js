@@ -1,13 +1,22 @@
-import { Fab } from "@material-ui/core";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/Sidebar.module.css";
 import EditIcon from "@material-ui/icons/Edit";
 import { Search } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Fab } from "@material-ui/core";
+import { auth, db } from "../firebase";
 import Header from "./Header";
 import Link from "next/link";
+import ChatBox from "./ChatBox";
 
 const Sidebar = () => {
+  const [user] = useAuthState(auth);
   const [users, setUsers] = useState([]);
+  const chatRef = db
+    .collection("chats")
+    .where("users", "array-contains", user.email);
+  const [chatSnapshot] = useCollection(chatRef);
 
   // filter names for search
   const filterNames = (term) => {
@@ -25,7 +34,7 @@ const Sidebar = () => {
       <div className={styles.search}>
         <input
           type="text"
-          autoComplete={false}
+          autoComplete="off"
           placeholder="Search users"
           className={styles.search_field}
           onChange={(e) => filterNames(e.target.value)}
@@ -40,6 +49,10 @@ const Sidebar = () => {
           </Fab>
         </Link>
       </div>
+
+      {chatSnapshot?.docs.map((chat) => (
+        <ChatBox key={chat.id} id={chat.id} data={chat.data()} />
+      ))}
     </aside>
   );
 };

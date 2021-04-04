@@ -10,7 +10,9 @@ const Loading = () => {
         justifyContent: "center",
       }}
     >
-      <CircularProgress style={{ width: "70px", height: "70px" }} />
+      <CircularProgress
+        style={{ color: "#17bf63", width: "70px", height: "70px" }}
+      />
     </section>
   );
 };
