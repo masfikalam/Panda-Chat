@@ -1,9 +1,11 @@
-import styles from "../styles/Chat.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
+import styles from "../styles/Chat.module.css";
 import { auth } from "../firebase";
+import moment from "moment";
 
 const Message = ({ message }) => {
   const [user] = useAuthState(auth);
+  console.log(message);
 
   return (
     <p
@@ -14,7 +16,11 @@ const Message = ({ message }) => {
       }
       className={styles.message_cover}
     >
-      <small className={styles.time}>{message.timestamp}</small>
+      {message.timestamp && (
+        <small className={styles.time}>
+          {message.timestamp ? moment(message.timestamp).format("LT") : "..."}
+        </small>
+      )}
       <span className={styles.message}>{message.message}</span>
     </p>
   );
