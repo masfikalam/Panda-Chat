@@ -63,7 +63,7 @@ const newChat = () => {
       db.collection("chats").add(newChat);
     }
 
-    router.push(`/${obj.id}`);
+    router.push(`/chat/${obj.id}`);
   };
 
   return (
@@ -112,7 +112,7 @@ const newChat = () => {
             onClick={() => createChat(chat)}
             className={styles.start_btn}
           >
-            Start <DoubleArrowIcon />
+            Start <DoubleArrowIcon style={{ color: "#15202b" }} />
           </Button>
         )}
       </div>

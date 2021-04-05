@@ -28,7 +28,7 @@ const ChatBox = ({ data, styles }) => {
   }, []);
 
   return (
-    <Link href={`/${details.id}`}>
+    <Link href={`/chat/${details.id}`}>
       <IconButton className={styles.cover}>
         <div className={styles.box}>
           <img
