@@ -1,6 +1,6 @@
 .main_chat {
   display: flex;
-  min-height: 100vh;
+  height: 100vh !important;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -42,8 +42,15 @@
 }
 
 .chat_area {
+  overflow-y: scroll;
   padding: 0 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   flex: 1;
+}
+
+.chat_area::-webkit-scrollbar {
+  display: none;
 }
 
 .hello {

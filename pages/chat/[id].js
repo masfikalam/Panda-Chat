@@ -2,7 +2,7 @@ import Head from "next/head";
 import firebase from "firebase";
 import { useRouter } from "next/router";
 import { auth, db } from "../../firebase";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Message from "../../components/Message";
 import { IconButton } from "@material-ui/core";
 import ChatHead from "../../components/ChatHead";
@@ -14,6 +14,7 @@ import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfie
 
 const Chat = (props) => {
   const router = useRouter();
+  const scrollDown = useRef(null);
   const [user] = useAuthState(auth);
   const [recipinetDetails, setRecipientDetails] = useState({});
   const messageRef = db
@@ -59,6 +60,14 @@ const Chat = (props) => {
     }
   };
 
+  // scroll down
+  const scrollDownToBottom = () => {
+    scrollDown.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   // send message
   const sendMessage = (e) => {
     e.preventDefault();
@@ -81,6 +90,7 @@ const Chat = (props) => {
 
     // clearing input
     form.reset();
+    scrollDownToBottom();
   };
 
   return (
@@ -92,7 +102,9 @@ const Chat = (props) => {
 
       <ChatHead styles={styles} userDetails={recipinetDetails} />
 
-      <div className={styles.chat_area}>{showMessages()}</div>
+      <div ref={scrollDown} className={styles.chat_area}>
+        {showMessages()}
+      </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>
         <SentimentVerySatisfiedIcon
