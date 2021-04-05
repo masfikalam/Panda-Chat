@@ -18,8 +18,9 @@ import {
 const newChat = () => {
   const router = useRouter();
   const [user] = useAuthState(auth);
-  const [users, setUsers] = useState([]);
   const [chat, setChat] = useState({});
+  const [users, setUsers] = useState([]);
+  const [exists, setExists] = useState("");
   const chatRef = db.collection("chats").where("users", "array-contains", {
     email: user.email,
     name: user.displayName,
@@ -36,15 +37,13 @@ const newChat = () => {
       };
     });
     const otherUsers = allUsers.filter((others) => others.email !== user.email);
-
     setUsers(otherUsers);
   }, []);
 
   // check if already exists
   const alreadyExists = (email) => {
-    const bool = !!chatSnapshot?.docs.find(
-      (chat) => chat.data().users.find((user) => user.email === email)
-      // ?.length > 0
+    const bool = !!chatSnapshot?.docs.find((chat) =>
+      chat.data().users.find((user) => user.email === email)
     );
 
     return bool;
@@ -60,10 +59,12 @@ const newChat = () => {
         ],
       };
 
-      db.collection("chats").add(newChat);
+      db.collection("chats")
+        .add(newChat)
+        .then((doc) => router.push(`/chat/${doc.id}`));
+    } else {
+      setExists("Chat already exists!");
     }
-
-    router.push(`/chat/${obj.id}`);
   };
 
   return (
@@ -115,6 +116,8 @@ const newChat = () => {
             Start <DoubleArrowIcon style={{ color: "#15202b" }} />
           </Button>
         )}
+
+        {exists && <p className={styles.exists}>{exists}</p>}
       </div>
     </section>
   );

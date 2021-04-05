@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { IconButton } from "@material-ui/core";
 import ChatHead from "../../components/ChatHead";
@@ -87,3 +87,24 @@ const Chat = () => {
 };
 
 export default Chat;
+
+// export async function getServerSideProps(context) {
+// const ref = db.collection("chats").doc(context.query.id);
+// const messageRef = await ref
+//   .collection("messages")
+//   .order("timestamp", "asc")
+//   .get();
+// const messages = messageRef.docs
+//   .map((doc) => {
+//     return {
+//       id: doc.id,
+//       ...doc.data(),
+//     };
+//   })
+//   .map((messages) => {
+//     return {
+//       ...messages,
+//       timestamp: messages.timestamp.toDate().getTime(),
+//     };
+//   });
+// }
