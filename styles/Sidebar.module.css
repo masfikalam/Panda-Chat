@@ -27,6 +27,17 @@
   right: 20px;
 }
 
+.all_chats {
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.all_chats::-webkit-scrollbar {
+  display: none;
+}
+
 .cover {
   justify-content: start !important;
   align-items: center !important;

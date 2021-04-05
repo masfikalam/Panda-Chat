@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { auth } from "../../firebase";
 import { useEffect, useState } from "react";
 import { IconButton } from "@material-ui/core";
@@ -39,6 +40,11 @@ const Chat = () => {
 
   return (
     <section className={styles.main_chat}>
+      <Head>
+        <title>Panda Chat - {user.displayName}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <ChatHead styles={styles} userDetails={user} />
 
       <div className={styles.chat_area}>

@@ -2,10 +2,10 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/Sidebar.module.css";
 import EditIcon from "@material-ui/icons/Edit";
-import { useEffect, useState } from "react";
 import { Search } from "@material-ui/icons";
 import { Fab } from "@material-ui/core";
 import { auth, db } from "../firebase";
+import { useState } from "react";
 import ChatBox from "./ChatBox";
 import Header from "./Header";
 import Link from "next/link";
@@ -45,6 +45,44 @@ const Sidebar = () => {
         <Search style={{ color: "white", fontSize: "25px" }} />
       </div>
 
+      <div className={styles.all_chats}>
+        {users ? (
+          users
+            .filter((chat) =>
+              chat.users.find((person) =>
+                person.name.toLowerCase().includes(term.toLowerCase())
+              )
+            )
+            .map((chat, id) => (
+              <div key={id}>
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+                <ChatBox data={chat} styles={styles} />
+              </div>
+            ))
+        ) : (
+          <p
+            style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}
+          >
+            Loading Chats...
+          </p>
+        )}
+      </div>
+
       <div className={styles.new_chat}>
         <Link href="/new">
           <Fab className={styles.chat_icon} aria-label="edit">
@@ -52,20 +90,6 @@ const Sidebar = () => {
           </Fab>
         </Link>
       </div>
-
-      {users ? (
-        users
-          .filter((chat) =>
-            chat.users.find((person) =>
-              person.name.toLowerCase().includes(term.toLowerCase())
-            )
-          )
-          .map((chat) => <ChatBox key={chat.id} data={chat} styles={styles} />)
-      ) : (
-        <p style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}>
-          Loading Chats...
-        </p>
-      )}
     </aside>
   );
 };
