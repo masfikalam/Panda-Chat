@@ -1,9 +1,14 @@
+.main_chat {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .header {
-  top: 0;
   z-index: 3;
   display: flex;
   color: #17bf63;
-  position: sticky;
   padding: 10px 20px;
   align-items: center;
   background-color: #15202b;
@@ -36,16 +41,46 @@
   font-size: 30px;
 }
 
+.chat_area {
+  padding: 0 20px;
+  flex: 1;
+}
+
+.message_cover {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message {
+  color: white;
+  max-width: 60%;
+  min-width: 38px;
+  text-align: left;
+  padding: 5px 10px;
+  word-break: break-all;
+  border: 2px solid #17bf63;
+  border-radius: 0 0 5px 5px;
+}
+
+.time {
+  font-size: 12px;
+  color: #15202b;
+  padding: 2px 5px;
+  margin-top: 10px;
+  text-align: right;
+  border-radius: 5px 5px 0 0;
+  background-color: #17bf63;
+}
+
 .form {
   justify-content: space-between;
+  background-color: #15202b;
   align-items: center;
-  padding: 5px 10px;
-  position: fixed;
+  padding: 10px 2%;
   display: flex;
-  margin: auto;
-  bottom: 5px;
-  right: 0;
-  left: 0;
+  width: 96%;
 }
 
 .input {
@@ -56,7 +91,7 @@
   font-size: 16px;
   margin: 0 10px;
   color: white;
-  width: 100%;
+  flex: 1;
 }
 
 .input:focus {

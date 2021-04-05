@@ -1,29 +1,62 @@
 import { auth } from "../../firebase";
+import { useEffect, useState } from "react";
+import { IconButton } from "@material-ui/core";
 import ChatHead from "../../components/ChatHead";
 import styles from "../../styles/Chat.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
-import { IconButton } from "@material-ui/core";
 
 const Chat = () => {
   const [user] = useAuthState(auth);
+  const [messages, setMessages] = useState([]);
+
+  // load chats
+  useEffect(() => {
+    setMessages([
+      {
+        type: "got",
+        message: "Hello there!",
+        time: "3:40 PM",
+      },
+    ]);
+  }, []);
 
   // send message
   const sendMessage = (e) => {
     e.preventDefault();
 
     const form = document.getElementById("send_message");
-    console.log(form.message.value);
+    const newMessage = {
+      type: "sent",
+      message: form.message.value,
+      time: "54:54 PM",
+    };
 
+    setMessages([...messages, newMessage]);
     form.reset();
   };
 
   return (
-    <section className="chat">
+    <section className={styles.main_chat}>
       <ChatHead styles={styles} userDetails={user} />
 
-      <div className="chat_area"></div>
+      <div className={styles.chat_area}>
+        {messages.map((message, id) => (
+          <p
+            style={
+              message.type === "got"
+                ? { alignItems: "flex-start" }
+                : { alignItems: "flex-end" }
+            }
+            key={id}
+            className={styles.message_cover}
+          >
+            <small className={styles.time}>{message.time}</small>
+            <span className={styles.message}>{message.message}</span>
+          </p>
+        ))}
+      </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>
         <SentimentVerySatisfiedIcon
@@ -31,10 +64,11 @@ const Chat = () => {
         />
         <input
           placeholder="Type message..."
-          autoComplete="off"
-          type="text"
           className={styles.input}
+          autoComplete="off"
           name="message"
+          type="text"
+          required
         />
         <IconButton type="submit" style={{ padding: "0", margin: 0 }}>
           <DoubleArrowIcon
