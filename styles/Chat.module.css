@@ -46,6 +46,12 @@
   flex: 1;
 }
 
+.hello {
+  color: #17bf63;
+  text-align: center;
+  margin-top: 50px;
+}
+
 .message_cover {
   margin: 0;
   display: flex;

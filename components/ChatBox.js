@@ -3,6 +3,7 @@ import DoneAllIcon from "@material-ui/icons/DoneAll";
 import { IconButton } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
+import TimeAgo from "timeago-react";
 import Link from "next/link";
 
 const ChatBox = ({ data, styles }) => {
@@ -13,7 +14,7 @@ const ChatBox = ({ data, styles }) => {
   );
 
   // load that persons details
-  useEffect(async () => {
+  useEffect(() => {
     db.collection("users")
       .where("email", "==", queryEmail)
       .get()
@@ -25,7 +26,7 @@ const ChatBox = ({ data, styles }) => {
           });
         });
       });
-  }, []);
+  }, [queryEmail]);
 
   return (
     <Link href={`/chat/${data.id}`}>
@@ -39,7 +40,11 @@ const ChatBox = ({ data, styles }) => {
 
           <div className={styles.text}>
             <h4 style={{ margin: "0", fontSize: "18px" }}>{details.name}</h4>
-            <small style={{ color: "#17bf63" }}>4:40 PM</small>
+            {details.active && (
+              <small style={{ color: "#17bf63" }}>
+                Last seen <TimeAgo datetime={details.active.toDate()} />
+              </small>
+            )}
           </div>
 
           <p className={styles.status}>

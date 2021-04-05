@@ -24,6 +24,7 @@ const profile = () => {
         />
 
         <h2>{user.displayName}</h2>
+        <h4>{user.email}</h4>
         <p className={styles.active}>Active now</p>
         <p className={styles.bottom}>
           Details are shown based on your Google account. <br /> <br />

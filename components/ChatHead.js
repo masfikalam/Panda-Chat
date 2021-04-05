@@ -1,5 +1,6 @@
 import KeyboardTabIcon from "@material-ui/icons/KeyboardTab";
 import { IconButton } from "@material-ui/core";
+import TimeAgo from "timeago-react";
 import Link from "next/link";
 
 const ChatHead = ({ styles, userDetails }) => {
@@ -8,15 +9,17 @@ const ChatHead = ({ styles, userDetails }) => {
       <div className={styles.box}>
         <img
           className={styles.photo}
-          src={userDetails.photoURL}
-          alt={userDetails.displayName}
+          src={userDetails.photo}
+          alt={userDetails.name}
         />
 
         <div className={styles.text}>
-          <h4 style={{ margin: "0", fontSize: "18px" }}>
-            {userDetails.displayName}
-          </h4>
-          <small style={{ color: "#17bf63" }}>4:40 PM</small>
+          <h4 style={{ margin: "0", fontSize: "18px" }}>{userDetails.name}</h4>
+          {userDetails.active && (
+            <small style={{ color: "#17bf63" }}>
+              Last seen <TimeAgo datetime={userDetails.active.toDate()} />
+            </small>
+          )}
         </div>
       </div>
 
