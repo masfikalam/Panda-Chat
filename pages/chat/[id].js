@@ -100,7 +100,11 @@ const Chat = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ChatHead styles={styles} userDetails={recipinetDetails} />
+      <ChatHead
+        styles={styles}
+        userDetails={recipinetDetails}
+        id={router.query.id}
+      />
 
       <div ref={scrollDown} className={styles.chat_area}>
         {showMessages()}
