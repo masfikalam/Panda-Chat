@@ -26,9 +26,9 @@ const Chat = (props) => {
   const [messageSnap] = useCollection(messageRef);
 
   // scroll down
-  useEffect(() => {
-    scrollDown.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [scroll]);
+  const pleaseScroll = () => {
+    scrollDown.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   // load recipient
   useEffect(() => {
@@ -107,6 +107,7 @@ const Chat = (props) => {
       <div className={styles.chat_area}>
         {showMessages()}
         <div className={styles.scroller} ref={scrollDown} />
+        {pleaseScroll()}
       </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>
