@@ -111,9 +111,9 @@ const Chat = (props) => {
       </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>
-        <SentimentVerySatisfiedIcon
+        {/* <SentimentVerySatisfiedIcon
           style={{ color: "#17bf63", fontSize: "35px", cursor: "pointer" }}
-        />
+        /> */}
         <input
           placeholder="Type message..."
           className={styles.input}
