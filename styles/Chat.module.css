@@ -41,11 +41,11 @@
 }
 
 .chat_area {
-  overflow-y: scroll;
-  padding: 0 20px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   flex: 1;
+  padding: 0 20px;
+  overflow-y: scroll;
+  /* scrollbar-width: none; */
+  -ms-overflow-style: none;
 }
 
 .chat_area::-webkit-scrollbar {
