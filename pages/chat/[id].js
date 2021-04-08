@@ -16,7 +16,6 @@ const Chat = (props) => {
   const router = useRouter();
   const scrollDown = useRef(null);
   const [user] = useAuthState(auth);
-  const [scroll, setScroll] = useState(false);
   const [recipinetDetails, setRecipientDetails] = useState({});
   const messageRef = db
     .collection("chats")
@@ -88,7 +87,6 @@ const Chat = (props) => {
 
     // clearing input
     form.reset();
-    setScroll(!scroll);
   };
 
   return (
