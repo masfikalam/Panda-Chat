@@ -2,11 +2,11 @@ import Head from "next/head";
 import firebase from "firebase";
 import { useRouter } from "next/router";
 import { auth, db } from "../../firebase";
-import { useEffect, useRef, useState } from "react";
 import Message from "../../components/Message";
 import { IconButton } from "@material-ui/core";
 import ChatHead from "../../components/ChatHead";
 import styles from "../../styles/Chat.module.css";
+import { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -23,6 +23,11 @@ const Chat = (props) => {
     .collection("messages")
     .orderBy("timestamp", "asc");
   const [messageSnap] = useCollection(messageRef);
+
+  // scroll down
+  const pleaseScroll = () => {
+    scrollDown.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   // load recipient
   useEffect(() => {
@@ -60,14 +65,6 @@ const Chat = (props) => {
     }
   };
 
-  // scroll down
-  const scrollDownToBottom = () => {
-    scrollDown.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
   // send message
   const sendMessage = (e) => {
     e.preventDefault();
@@ -90,7 +87,6 @@ const Chat = (props) => {
 
     // clearing input
     form.reset();
-    scrollDownToBottom();
   };
 
   return (
@@ -106,8 +102,10 @@ const Chat = (props) => {
         id={router.query.id}
       />
 
-      <div ref={scrollDown} className={styles.chat_area}>
+      <div className={styles.chat_area}>
         {showMessages()}
+        <div className={styles.scroller} ref={scrollDown} />
+        {pleaseScroll()}
       </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>

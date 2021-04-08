@@ -15,22 +15,6 @@ const AllChats = ({ styles, users, term }) => {
         .map((chat, id) => (
           <div key={id}>
             <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
-            <ChatBox data={chat} styles={styles} />
           </div>
         ))
     ) : (
