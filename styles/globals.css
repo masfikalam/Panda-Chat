@@ -5,6 +5,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  user-select: none;
+  -moz-user-select: none;
   box-sizing: border-box;
   background-color: #15202b;
   font-family: "Rubik", sans-serif;
