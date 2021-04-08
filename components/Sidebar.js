@@ -9,11 +9,11 @@ import { useState } from "react";
 import ChatBox from "./ChatBox";
 import Header from "./Header";
 import Link from "next/link";
+import AllChats from "./AllChats";
 
 const Sidebar = () => {
   const [user] = useAuthState(auth);
   const [term, setTerm] = useState("");
-  // const [users, setUsers] = useState([]);
 
   // loading user data
   const chatRef = db.collection("chats").where("users", "array-contains", {
@@ -41,46 +41,11 @@ const Sidebar = () => {
           className={styles.search_field}
           onChange={(e) => setTerm(e.target.value)}
         />
-
         <Search style={{ color: "white", fontSize: "25px" }} />
       </div>
 
       <div className={styles.all_chats}>
-        {users ? (
-          users
-            .filter((chat) =>
-              chat.users.find((person) =>
-                person.name.toLowerCase().includes(term.toLowerCase())
-              )
-            )
-            .map((chat, id) => (
-              <div key={id}>
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-                <ChatBox data={chat} styles={styles} />
-              </div>
-            ))
-        ) : (
-          <p
-            style={{ textAlign: "center", marginTop: "50px", color: "#17bf63" }}
-          >
-            Loading Chats...
-          </p>
-        )}
+        <AllChats styles={styles} users={users} term={term} />
       </div>
 
       <div className={styles.new_chat}>

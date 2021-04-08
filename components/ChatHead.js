@@ -1,9 +1,24 @@
-import KeyboardTabIcon from "@material-ui/icons/KeyboardTab";
-import { IconButton } from "@material-ui/core";
+import { Dialog, DialogTitle, IconButton } from "@material-ui/core";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { useRouter } from "next/router";
 import TimeAgo from "timeago-react";
+import { useState } from "react";
+import { db } from "../firebase";
 import Link from "next/link";
 
-const ChatHead = ({ styles, userDetails }) => {
+const ChatHead = ({ styles, userDetails, id }) => {
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+
+  // delete chat
+  const deleteChat = () => {
+    db.collection("chats")
+      .doc(id)
+      .delete()
+      .then(() => router.push("/"));
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.box}>
@@ -23,11 +38,44 @@ const ChatHead = ({ styles, userDetails }) => {
         </div>
       </div>
 
-      <Link href="/">
-        <IconButton>
-          <KeyboardTabIcon className={styles.back} />
+      <div className="options">
+        <Link href="/">
+          <IconButton>
+            <ArrowBackIosIcon className={styles.back} />
+          </IconButton>
+        </Link>
+
+        <IconButton onClick={() => setOpen(true)}>
+          <DeleteIcon className={styles.back} />
         </IconButton>
-      </Link>
+
+        <Dialog
+          onClose={() => setOpen(false)}
+          aria-labelledby="delete-chat-modal"
+          open={open}
+        >
+          <DialogTitle id="delete-chat-modal">
+            Sure to delete this chat?
+          </DialogTitle>
+
+          <div className={styles.buttons_box}>
+            <button
+              onClick={deleteChat}
+              style={{ background: "#17bf63" }}
+              className={styles.button}
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              style={{ background: "#15202b" }}
+              className={styles.button}
+            >
+              No
+            </button>
+          </div>
+        </Dialog>
+      </div>
     </header>
   );
 };

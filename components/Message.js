@@ -5,7 +5,6 @@ import moment from "moment";
 
 const Message = ({ message }) => {
   const [user] = useAuthState(auth);
-  console.log(message);
 
   return (
     <p
