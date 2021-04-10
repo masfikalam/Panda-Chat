@@ -30,7 +30,10 @@
   margin-top: 50px !important;
 }
 
-.exists {
-  color: #17bf63;
-  margin-top: 50px;
+.warn {
+  margin: auto;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  bottom: 20px !important;
 }

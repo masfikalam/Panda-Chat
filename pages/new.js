@@ -2,6 +2,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/NewChat.module.css";
+import CloseIcon from "@material-ui/icons/Close";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useRouter } from "next/router";
@@ -10,9 +11,11 @@ import Head from "next/head";
 import {
   Button,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   Select,
+  Snackbar,
 } from "@material-ui/core";
 
 const newChat = () => {
@@ -20,7 +23,7 @@ const newChat = () => {
   const [user] = useAuthState(auth);
   const [chat, setChat] = useState({});
   const [users, setUsers] = useState([]);
-  const [exists, setExists] = useState("");
+  const [open, setOpen] = useState(false);
   const chatRef = db.collection("chats").where("users", "array-contains", {
     email: user.email,
     name: user.displayName,
@@ -63,8 +66,16 @@ const newChat = () => {
         .add(newChat)
         .then((doc) => router.push(`/chat/${doc.id}`));
     } else {
-      setExists("Chat already exists!");
+      setOpen(true);
     }
+  };
+
+  // close warning
+  const handleClose = (e, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
   return (
@@ -116,9 +127,29 @@ const newChat = () => {
             Start <DoubleArrowIcon style={{ color: "#15202b" }} />
           </Button>
         )}
-
-        {exists && <p className={styles.exists}>{exists}</p>}
       </div>
+
+      <Snackbar
+        open={open}
+        onClose={handleClose}
+        className={styles.warn}
+        autoHideDuration={2000}
+        message="Chat already exists!"
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        }
+      />
     </section>
   );
 };
