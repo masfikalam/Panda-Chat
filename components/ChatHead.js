@@ -21,22 +21,26 @@ const ChatHead = ({ styles, userDetails, id }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.box}>
-        <img
-          className={styles.photo}
-          src={userDetails.photo}
-          alt={userDetails.name}
-        />
+      <Link href={`/profile/${userDetails.id}`}>
+        <div className={styles.box}>
+          <img
+            className={styles.photo}
+            src={userDetails.photo}
+            alt={userDetails.name}
+          />
 
-        <div className={styles.text}>
-          <h4 style={{ margin: "0", fontSize: "18px" }}>{userDetails.name}</h4>
-          {userDetails.active && (
-            <small style={{ color: "#17bf63" }}>
-              Last seen <TimeAgo datetime={userDetails.active.toDate()} />
-            </small>
-          )}
+          <div className={styles.text}>
+            <h4 style={{ margin: "0", fontSize: "18px" }}>
+              {userDetails.name}
+            </h4>
+            {userDetails.active && (
+              <small style={{ color: "#17bf63" }}>
+                Last seen <TimeAgo datetime={userDetails.active.toDate()} />
+              </small>
+            )}
+          </div>
         </div>
-      </div>
+      </Link>
 
       <div className="options">
         <Link href="/">

@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { auth } from "../firebase";
-import Header from "../components/Header";
-import styles from "../styles/Profile.module.css";
+import { auth } from "../../firebase";
+import Header from "../../components/Header";
+import BioText from "../../components/BioText";
+import styles from "../../styles/Profile.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const profile = () => {
@@ -24,8 +25,9 @@ const profile = () => {
         />
 
         <h2>{user.displayName}</h2>
-        <h4>{user.email}</h4>
-        <p className={styles.active}>Active now</p>
+
+        <BioText styles={styles} user={user} />
+
         <p className={styles.bottom}>
           Details are shown based on your Google account. <br /> <br />
           <a href="https://masfikul-alam.web.app/" target="_blank">

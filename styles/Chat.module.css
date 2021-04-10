@@ -18,10 +18,15 @@
 .box {
   z-index: 2;
   display: flex;
+  padding: 10px;
   color: white;
+  cursor: pointer;
   align-items: center;
   justify-content: flex-start !important;
-  padding: 10px;
+}
+
+.box:active {
+  transform: scale(0.95);
 }
 
 .photo {

@@ -42,15 +42,6 @@ const Header = () => {
           </Link>
         </MenuItem>
 
-        <MenuItem className={styles.menu_item}>
-          <Link href="/settings">
-            <span className={styles.menu_text}>
-              <SettingsIcon style={{ marginRight: "10px" }} />
-              Settings
-            </span>
-          </Link>
-        </MenuItem>
-
         <MenuItem onClick={googleSignOut} className={styles.menu_item}>
           <span className={styles.menu_text}>
             <ExitToAppIcon style={{ marginRight: "10px" }} />

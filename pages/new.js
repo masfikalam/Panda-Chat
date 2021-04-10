@@ -1,5 +1,5 @@
-import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { useCollection } from "react-firebase-hooks/firestore";
+import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/NewChat.module.css";
 import { useEffect, useState } from "react";

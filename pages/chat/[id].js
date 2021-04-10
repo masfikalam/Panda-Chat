@@ -97,8 +97,8 @@ const Chat = (props) => {
 
       <ChatHead
         styles={styles}
-        userDetails={recipinetDetails}
         id={router.query.id}
+        userDetails={recipinetDetails}
       />
 
       <div className={styles.chat_area}>
@@ -109,9 +109,6 @@ const Chat = (props) => {
       </div>
 
       <form id="send_message" className={styles.form} onSubmit={sendMessage}>
-        {/* <SentimentVerySatisfiedIcon
-          style={{ color: "#17bf63", fontSize: "35px", cursor: "pointer" }}
-        /> */}
         <input
           placeholder="Type message..."
           className={styles.input}

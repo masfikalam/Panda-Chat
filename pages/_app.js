@@ -14,16 +14,15 @@ function MyApp({ Component, pageProps }) {
     if (user) {
       db.collection("users").doc(user.uid).set(
         {
-          name: user.displayName,
           email: user.email,
           photo: user.photoURL,
+          name: user.displayName,
           active: firebase.firestore.FieldValue.serverTimestamp(),
         },
         { merge: true }
       );
     }
   }, [user]);
-
   // rendering based on login status
   if (loading) {
     return <Loading />;
