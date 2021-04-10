@@ -24,9 +24,9 @@ const ChatHead = ({ styles, userDetails, id }) => {
       <Link href={`/profile/${userDetails.id}`}>
         <div className={styles.box}>
           <img
-            className={styles.photo}
-            src={userDetails.photo}
             alt={userDetails.name}
+            src={userDetails.photo}
+            className={styles.photo}
           />
 
           <div className={styles.text}>
@@ -65,15 +65,15 @@ const ChatHead = ({ styles, userDetails, id }) => {
           <div className={styles.buttons_box}>
             <button
               onClick={deleteChat}
-              style={{ background: "#17bf63" }}
               className={styles.button}
+              style={{ background: "#17bf63", color: "#15202b" }}
             >
               Yes
             </button>
             <button
+              className={styles.button}
               onClick={() => setOpen(false)}
               style={{ background: "#15202b" }}
-              className={styles.button}
             >
               No
             </button>

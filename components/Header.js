@@ -1,6 +1,7 @@
+import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
+import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import SettingsIcon from "@material-ui/icons/Settings";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import styles from "../styles/Header.module.css";
 import FaceIcon from "@material-ui/icons/Face";
@@ -38,6 +39,24 @@ const Header = () => {
             <span className={styles.menu_text}>
               <FaceIcon style={{ marginRight: "10px" }} />
               Profile
+            </span>
+          </Link>
+        </MenuItem>
+
+        <MenuItem className={styles.menu_item}>
+          <Link href="/help">
+            <span className={styles.menu_text}>
+              <HelpOutlineOutlinedIcon style={{ marginRight: "10px" }} />
+              Usage
+            </span>
+          </Link>
+        </MenuItem>
+
+        <MenuItem className={styles.menu_item}>
+          <Link href="/about">
+            <span className={styles.menu_text}>
+              <InfoOutlinedIcon style={{ marginRight: "10px" }} />
+              About
             </span>
           </Link>
         </MenuItem>
