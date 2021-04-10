@@ -25,8 +25,8 @@ const Login = () => {
 
       <button
         type="button"
-        className={styles.login_button}
         onClick={GoogleSignin}
+        className={styles.login_button}
       >
         Sign in
       </button>
