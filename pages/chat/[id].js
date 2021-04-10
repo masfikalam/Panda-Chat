@@ -10,7 +10,6 @@ import { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { useCollection } from "react-firebase-hooks/firestore";
-import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 
 const Chat = (props) => {
   const router = useRouter();
@@ -103,6 +102,7 @@ const Chat = (props) => {
       />
 
       <div className={styles.chat_area}>
+        <p className={styles.hello}>Start chat with {recipinetDetails.name}</p>
         {showMessages()}
         <div className={styles.scroller} ref={scrollDown} />
         {pleaseScroll()}
