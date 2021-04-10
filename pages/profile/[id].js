@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { db } from "../../firebase";
 import TimeAgo from "timeago-react";
 import { useRouter } from "next/router";
@@ -57,7 +56,7 @@ const profile = () => {
             <tr style={{ verticalAlign: "top", padding: "30px" }}>
               <td>Summary &nbsp;</td>
               <td>:&nbsp;</td>
-              <td>{user.bio}</td>
+              <td>{user.bio ? user.bio : "..."}</td>
             </tr>
           </tbody>
         </table>

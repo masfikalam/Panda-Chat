@@ -12,7 +12,10 @@ const BioText = ({ styles, user }) => {
     db.collection("users")
       .doc(user.uid)
       .get()
-      .then((doc) => setBioText(doc.data().bio));
+      .then((doc) => {
+        const bio = doc.data().bio;
+        setBioText(bio ? bio : "...");
+      });
   }, [user]);
 
   // change summary
