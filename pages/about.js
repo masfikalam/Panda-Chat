@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
@@ -26,7 +27,7 @@ const profile = () => {
         </div>
 
         <div className={styles.features}>
-          <label>Key Features -</label>
+          <span style={{ color: "#17bf63" }}>Key Features -</span>
           <ul>
             <li>Sign up with your google account</li>
             <li>Chat with other registered users</li>
@@ -35,6 +36,35 @@ const profile = () => {
             <li>Update your bio and let others know you</li>
             <li>Coming soon - change profile picture, send photos</li>
           </ul>
+        </div>
+
+        <div className={styles.features}>
+          <span style={{ color: "#17bf63" }}>Tech Stack -</span>
+          <ul>
+            <li>Next JS, JavaScript</li>
+            <li>Moment JS, Material UI</li>
+            <li>Firebase Auth, Firestore</li>
+            <li>HTML, CSS, CSS Modules</li>
+          </ul>
+        </div>
+
+        <div className={styles.features}>
+          <span style={{ color: "#17bf63" }}>Developer -</span>
+          <div style={{ paddingLeft: "20px" }}>
+            <h3 style={{ marginBottom: "5px" }}>Masfik Alam</h3>
+            <p style={{ margin: "0" }}>City - Chittagong, Bangladesh</p>
+            <p style={{ margin: "0" }}>
+              Contact - <a href="mailto:masfikalamfrp@gmail.com">Email</a>
+              {" / "}
+              <a href="https://linkedin.com/in/masfik-alam" target="_blank">
+                Linkedin
+              </a>
+              {" / "}
+              <a href="https://masfikul-alam.web.app" target="_blank">
+                Web
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
