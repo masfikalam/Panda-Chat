@@ -1,0 +1,36 @@
+.about {
+  color: white;
+  padding: 40px 20px 0 20px;
+  text-align: center;
+}
+
+.image_box {
+  position: relative;
+}
+
+.version {
+  left: 0;
+  right: 0;
+  z-index: 5;
+  top: -25px;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  font-size: 20px;
+  color: #15202b;
+  font-weight: bold;
+  position: absolute;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #17bf63;
+  transform: perspective(800px) rotateY(50deg) rotateZ(-6deg);
+}
+
+.features {
+  text-align: left;
+  margin-top: 50px;
+  line-height: 25px;
+  padding-left: 10px;
+}

@@ -1,4 +1,3 @@
-import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -39,15 +38,6 @@ const Header = () => {
             <span className={styles.menu_text}>
               <FaceIcon style={{ marginRight: "10px" }} />
               Profile
-            </span>
-          </Link>
-        </MenuItem>
-
-        <MenuItem className={styles.menu_item}>
-          <Link href="/help">
-            <span className={styles.menu_text}>
-              <HelpOutlineOutlinedIcon style={{ marginRight: "10px" }} />
-              Usage
             </span>
           </Link>
         </MenuItem>
