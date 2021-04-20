@@ -92,7 +92,7 @@ const Chat = (props) => {
     <section className={styles.main_chat}>
       <Head>
         <title>Panda Chat - {recipinetDetails.name}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <ChatHead

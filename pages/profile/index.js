@@ -12,7 +12,7 @@ const profile = () => {
     <section id="profile">
       <Head>
         <title>Panda Chat - Profile</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <Header />

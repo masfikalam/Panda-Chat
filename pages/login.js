@@ -13,7 +13,7 @@ const Login = () => {
     <section className={styles.login}>
       <Head>
         <title>Panda Chat - Login</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <div className="texts">

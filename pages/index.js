@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <Head>
         <title>Panda Chat - Home</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <Sidebar />
