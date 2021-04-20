@@ -31,10 +31,18 @@ const profile = () => {
           <ul>
             <li>Sign up with your google account</li>
             <li>Chat with other registered users</li>
-            <li>Search your chats in the search</li>
+            <li>Search your chats in the search bar</li>
             <li>View yours and other user's profiles</li>
             <li>Update your bio and let others know you</li>
-            <li>Coming soon - change profile picture, send photos</li>
+          </ul>
+        </div>
+
+        <div className={styles.features}>
+          <span style={{ color: "#17bf63" }}>Coming soon -</span>
+          <ul>
+            <li>Message notifications</li>
+            <li>Change profile picture</li>
+            <li>Send photos and files</li>
           </ul>
         </div>
 
@@ -52,7 +60,6 @@ const profile = () => {
           <span style={{ color: "#17bf63" }}>Developer -</span>
           <div style={{ paddingLeft: "20px" }}>
             <h3 style={{ marginBottom: "5px" }}>Masfik Alam</h3>
-            <p style={{ margin: "0" }}>City - Chittagong, Bangladesh</p>
             <p style={{ margin: "0" }}>
               Contact - <a href="mailto:masfikalamfrp@gmail.com">Email</a>
               {" / "}
