@@ -31,7 +31,7 @@ const Login = () => {
         Sign in
       </button>
 
-      <small style={{ color: "white" }}>
+      <small className={styles.copyright}>
         <a href="https://masfikul-alam.web.app/" target="_blank">
           Masfik
         </a>{" "}

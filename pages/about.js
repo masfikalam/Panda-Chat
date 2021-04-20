@@ -28,18 +28,18 @@ const profile = () => {
 
         <div className={styles.features}>
           <span style={{ color: "#17bf63" }}>Key Features -</span>
-          <ul>
+          <ul className={styles.list}>
             <li>Sign up with your google account</li>
             <li>Chat with other registered users</li>
             <li>Search your chats in the search bar</li>
             <li>View yours and other user's profiles</li>
-            <li>Update your bio and let others know you</li>
+            <li>Update bio and let others know you</li>
           </ul>
         </div>
 
         <div className={styles.features}>
           <span style={{ color: "#17bf63" }}>Coming soon -</span>
-          <ul>
+          <ul className={styles.list}>
             <li>Message notifications</li>
             <li>Change profile picture</li>
             <li>Send photos and files</li>
@@ -48,7 +48,7 @@ const profile = () => {
 
         <div className={styles.features}>
           <span style={{ color: "#17bf63" }}>Tech Stack -</span>
-          <ul>
+          <ul className={styles.list}>
             <li>Next JS, JavaScript</li>
             <li>Moment JS, Material UI</li>
             <li>Firebase Auth, Firestore</li>

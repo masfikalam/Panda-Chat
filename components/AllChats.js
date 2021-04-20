@@ -1,7 +1,7 @@
 import React from "react";
 import ChatBox from "./ChatBox";
 
-const AllChats = ({ styles, users, term }) => {
+const AllChats = ({ term, styles, users }) => {
   const altStyle = { textAlign: "center", marginTop: "50px", color: "#17bf63" };
 
   return users ? (

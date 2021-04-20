@@ -9,7 +9,7 @@
   z-index: 3;
   display: flex;
   color: #17bf63;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 20px;
   align-items: center;
   background-color: #15202b;
   justify-content: space-between;
@@ -63,7 +63,7 @@
 .hello {
   color: #17bf63;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .message_cover {
@@ -109,13 +109,19 @@
   border-radius: 10px;
   padding: 8px 15px;
   font-size: 16px;
-  margin: 0 10px;
   color: white;
+  margin: 0 5px;
   flex: 1;
 }
 
 .input:focus {
   outline: none;
+}
+
+.send {
+  cursor: pointer;
+  color: #17bf63;
+  font-size: 40px !important;
 }
 
 .buttons_box {
@@ -136,4 +142,31 @@
 
 .button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 380px) {
+  .box {
+    font-size: 13px;
+  }
+  .photo {
+    width: 40px;
+    height: 40px;
+  }
+  .hide_back {
+    display: none !important;
+  }
+  .message {
+    font-size: 14px;
+  }
+  .input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+  .send {
+    font-size: 30px !important;
+  }
+  .confirm {
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
