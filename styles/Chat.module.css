@@ -9,7 +9,7 @@
   z-index: 3;
   display: flex;
   color: #17bf63;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 20px;
   align-items: center;
   background-color: #15202b;
   justify-content: space-between;
@@ -63,7 +63,7 @@
 .hello {
   color: #17bf63;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .message_cover {
@@ -136,4 +136,17 @@
 
 .button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 380px) {
+  .box {
+    font-size: 13px;
+  }
+  .photo {
+    width: 40px;
+    height: 40px;
+  }
+  .hide_back {
+    display: none !important;
+  }
 }

@@ -44,7 +44,7 @@ const ChatHead = ({ styles, userDetails, id }) => {
 
       <div className="options">
         <Link href="/">
-          <IconButton>
+          <IconButton className={styles.hide_back}>
             <ArrowBackIosIcon className={styles.back} />
           </IconButton>
         </Link>
