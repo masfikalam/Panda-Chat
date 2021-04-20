@@ -29,11 +29,7 @@ const profile = () => {
         <BioText styles={styles} user={user} />
 
         <p className={styles.bottom}>
-          Details are shown based on your Google account. <br /> <br />
-          <a href="https://masfikul-alam.web.app/" target="_blank">
-            Masfik
-          </a>{" "}
-          &copy; {new Date().getFullYear()}
+          Details are shown based on your Google account.
         </p>
       </div>
     </section>
