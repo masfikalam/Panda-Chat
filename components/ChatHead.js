@@ -54,12 +54,12 @@ const ChatHead = ({ styles, userDetails, id }) => {
         </IconButton>
 
         <Dialog
-          onClose={() => setOpen(false)}
           aria-labelledby="delete-chat-modal"
+          onClose={() => setOpen(false)}
           open={open}
         >
           <DialogTitle id="delete-chat-modal">
-            Sure to delete this chat?
+            <p className={styles.confirm}>Sure to delete this chat?</p>
           </DialogTitle>
 
           <div className={styles.buttons_box}>

@@ -165,4 +165,8 @@
   .send {
     font-size: 30px !important;
   }
+  .confirm {
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
