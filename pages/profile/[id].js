@@ -34,12 +34,7 @@ const profile = () => {
 
         <h2>{user.name}</h2>
 
-        <table
-          style={{
-            textAlign: "left",
-            padding: "20px",
-          }}
-        >
+        <table className={styles.table}>
           <tbody>
             <tr>
               <td>Active</td>
@@ -70,11 +65,7 @@ const profile = () => {
         </Button>
 
         <p className={styles.bottom}>
-          Details are shown based on Google account. <br /> <br />
-          <a href="https://masfikul-alam.web.app/" target="_blank">
-            Masfik
-          </a>{" "}
-          &copy; {new Date().getFullYear()}
+          Details are shown based on Google account.
         </p>
       </div>
     </section>
