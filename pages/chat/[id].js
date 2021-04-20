@@ -118,9 +118,7 @@ const Chat = (props) => {
           required
         />
         <IconButton type="submit" style={{ padding: "0", margin: 0 }}>
-          <DoubleArrowIcon
-            style={{ color: "#17bf63", fontSize: "40px", cursor: "pointer" }}
-          />
+          <DoubleArrowIcon className={styles.send} />
         </IconButton>
       </form>
     </section>

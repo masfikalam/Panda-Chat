@@ -77,3 +77,10 @@
   background: #17bf63 !important;
   color: #15202b !important;
 }
+
+@media (max-width: 360px) {
+  .search_field {
+    padding: 10px;
+    font-size: 16px;
+  }
+}

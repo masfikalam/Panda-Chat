@@ -47,9 +47,12 @@ const ChatBox = ({ data, styles }) => {
             )}
           </div>
 
-          <p className={styles.status}>
-            <DoneAllIcon style={{ fontSize: "16px" }} />
-          </p>
+          {/* 
+            Detect new message or seen message
+            <p className={styles.status}>
+              <DoneAllIcon style={{ fontSize: "16px" }} />
+            </p>
+          */}
         </div>
       </IconButton>
     </Link>

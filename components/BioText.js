@@ -21,7 +21,6 @@ const BioText = ({ styles, user }) => {
   // change summary
   const changeSummary = (e) => {
     e.preventDefault();
-
     const form = document.getElementById("summary_form");
     const summary = form.summary.value;
 
@@ -41,12 +40,7 @@ const BioText = ({ styles, user }) => {
 
   return (
     <>
-      <table
-        style={{
-          textAlign: "left",
-          padding: "20px",
-        }}
-      >
+      <table className={styles.table}>
         <tbody>
           <tr>
             <td>Status</td>
@@ -77,7 +71,7 @@ const BioText = ({ styles, user }) => {
             maxLength="30"
             autoFocus
             required
-            rows="2"
+            rows="1"
           ></textarea>
           <Button type="submit" variant="outlined" className={styles.edit_bio}>
             Save

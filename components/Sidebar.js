@@ -5,11 +5,10 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Search } from "@material-ui/icons";
 import { Fab } from "@material-ui/core";
 import { auth, db } from "../firebase";
+import AllChats from "./AllChats";
 import { useState } from "react";
-import ChatBox from "./ChatBox";
 import Header from "./Header";
 import Link from "next/link";
-import AllChats from "./AllChats";
 
 const Sidebar = () => {
   const [user] = useAuthState(auth);
