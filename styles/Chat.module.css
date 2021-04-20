@@ -109,13 +109,19 @@
   border-radius: 10px;
   padding: 8px 15px;
   font-size: 16px;
-  margin: 0 10px;
   color: white;
+  margin: 0 5px;
   flex: 1;
 }
 
 .input:focus {
   outline: none;
+}
+
+.send {
+  cursor: pointer;
+  color: #17bf63;
+  font-size: 40px !important;
 }
 
 .buttons_box {
@@ -148,5 +154,15 @@
   }
   .hide_back {
     display: none !important;
+  }
+  .message {
+    font-size: 14px;
+  }
+  .input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+  .send {
+    font-size: 30px !important;
   }
 }
