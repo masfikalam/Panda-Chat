@@ -1,5 +1,5 @@
-import Head from "next/head";
 import Image from "next/image";
+import HeadTag from "../components/HeadTag";
 import { auth, provider } from "../firebase";
 import styles from "../styles/Login.module.css";
 
@@ -11,10 +11,7 @@ const Login = () => {
 
   return (
     <section className={styles.login}>
-      <Head>
-        <title>Panda Chat - Login</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page="Login" />
 
       <div className="texts">
         <h1 className={styles.title}>Panda Chat</h1>
