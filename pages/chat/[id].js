@@ -1,7 +1,7 @@
-import Head from "next/head";
 import firebase from "firebase";
 import { useRouter } from "next/router";
 import { auth, db } from "../../firebase";
+import HeadTag from "../../components/HeadTag";
 import Message from "../../components/Message";
 import { IconButton } from "@material-ui/core";
 import ChatHead from "../../components/ChatHead";
@@ -90,10 +90,7 @@ const Chat = (props) => {
 
   return (
     <section className={styles.main_chat}>
-      <Head>
-        <title>Panda Chat - {recipinetDetails.name}</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page={recipinetDetails.name} />
 
       <ChatHead
         styles={styles}

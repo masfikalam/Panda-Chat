@@ -4,10 +4,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/NewChat.module.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { useEffect, useState } from "react";
+import HeadTag from "../components/HeadTag";
 import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { auth, db } from "../firebase";
-import Head from "next/head";
 import {
   Button,
   FormControl,
@@ -80,10 +80,7 @@ const newChat = () => {
 
   return (
     <section>
-      <Head>
-        <title>Panda Chat - New</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page="New" />
 
       <Header />
 

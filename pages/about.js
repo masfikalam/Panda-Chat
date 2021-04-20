@@ -1,16 +1,12 @@
-import { Button } from "@material-ui/core";
-import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
+import HeadTag from "../components/HeadTag";
 import styles from "../styles/About.module.css";
 
 const profile = () => {
   return (
     <section>
-      <Head>
-        <title>Panda Chat - About</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page="About" />
 
       <Header />
       <div className={styles.about}>

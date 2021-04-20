@@ -8,7 +8,7 @@ const HeadTag = ({ page }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
         name="description"
-        content="Panda Chat - Simple chat application for fun"
+        content="Panda Chat - Don't be racist, be like Panda"
       />
       <meta
         name="keywords"
@@ -17,7 +17,7 @@ const HeadTag = ({ page }) => {
       <meta itemprop="name" content="Panda Chat" />
       <meta
         itemprop="description"
-        content="Panda Chat - Simple chat application for fun"
+        content="Panda Chat - Don't be racist, be like Panda"
       />
       <meta itemprop="image" content="https://i.ibb.co/WcwcVdk/featured.png" />
       <meta property="og:type" content="website" />
@@ -25,7 +25,7 @@ const HeadTag = ({ page }) => {
       <meta property="og:url" content="https://panda-chat.vercel.app/" />
       <meta
         property="og:description"
-        content="Panda Chat - Simple chat application for fun"
+        content="Panda Chat - Don't be racist, be like Panda"
       />
       <meta
         property="og:image"
@@ -35,7 +35,7 @@ const HeadTag = ({ page }) => {
       <meta name="twitter:title" content="Panda Chat" />
       <meta
         name="twitter:description"
-        content="Panda Chat - Simple chat application for fun"
+        content="Panda Chat - Don't be racist, be like Panda"
       />
       <meta
         name="twitter:image"

@@ -1,6 +1,6 @@
-import Head from "next/head";
 import { auth } from "../../firebase";
 import Header from "../../components/Header";
+import HeadTag from "../../components/HeadTag";
 import BioText from "../../components/BioText";
 import styles from "../../styles/Profile.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,10 +10,7 @@ const profile = () => {
 
   return (
     <section id="profile">
-      <Head>
-        <title>Panda Chat - Profile</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page="Profile" />
 
       <Header />
 

@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <main>
       <HeadTag page="Home" />
+
       <Sidebar />
     </main>
   );
