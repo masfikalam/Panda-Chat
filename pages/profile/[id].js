@@ -1,10 +1,10 @@
-import Head from "next/head";
 import { db } from "../../firebase";
 import TimeAgo from "timeago-react";
 import { useRouter } from "next/router";
 import { Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
+import HeadTag from "../../components/HeadTag";
 import ChatIcon from "@material-ui/icons/Chat";
 import styles from "../../styles/Profile.module.css";
 
@@ -22,10 +22,7 @@ const profile = () => {
 
   return (
     <section id="profile">
-      <Head>
-        <title>Panda Chat - Profile</title>
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <HeadTag page="Profile" />
 
       <Header />
 
