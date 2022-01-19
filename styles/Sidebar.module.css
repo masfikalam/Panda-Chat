@@ -9,11 +9,11 @@
 }
 
 .search_field {
-  border: none;
   width: 90%;
-  padding: 10px 15px;
-  font-size: 18px;
+  border: none;
   color: white;
+  font-size: 18px;
+  padding: 10px 15px;
   background-color: transparent;
 }
 
@@ -22,9 +22,9 @@
 }
 
 .new_chat {
-  position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: 20px;
+  position: absolute;
 }
 
 .all_chats {

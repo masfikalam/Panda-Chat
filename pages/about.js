@@ -11,7 +11,7 @@ const profile = () => {
       <Header />
       <div className={styles.about}>
         <div className={styles.image_box}>
-          <div className={styles.version}>Panda Chat v1.0</div>
+          <div className={styles.version}>Panda Chat v1.3</div>
           <Image
             className={styles.photo}
             src="/imgs/about1.png"

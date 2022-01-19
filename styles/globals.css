@@ -22,3 +22,33 @@ a {
   font-weight: bold !important;
   background-color: #17bf63 !important;
 }
+
+@media (min-width: 700px) {
+  body {
+    height: 100vh;
+    padding: 5vh 0;
+    scrollbar-width: none;
+    background-color: #0b1016;
+  }
+
+  main {
+    position: relative;
+  }
+
+  main,
+  section {
+    margin: auto;
+    max-width: 500px;
+    overflow: scroll;
+    border-radius: 10px;
+    scrollbar-width: none;
+    height: 90vh !important;
+    -ms-overflow-style: none;
+    background-color: #15202b;
+  }
+
+  main::-webkit-scrollbar,
+  section::-webkit-scrollbar {
+    display: none;
+  }
+}

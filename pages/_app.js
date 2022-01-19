@@ -1,10 +1,10 @@
-import Login from "./login";
-import "../styles/globals.css";
 import firebase from "firebase/";
 import { useEffect } from "react";
-import { auth, db } from "../firebase";
-import Loading from "../components/Loading";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../components/Loading";
+import { auth, db } from "../firebase";
+import "../styles/globals.css";
+import Login from "./login";
 
 function MyApp({ Component, pageProps }) {
   const [user, loading] = useAuthState(auth);
@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
       );
     }
   }, [user]);
+
   // rendering based on login status
   if (loading) {
     return <Loading />;

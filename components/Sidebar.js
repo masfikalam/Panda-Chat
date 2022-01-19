@@ -1,14 +1,14 @@
-import { useCollection } from "react-firebase-hooks/firestore";
-import { useAuthState } from "react-firebase-hooks/auth";
-import styles from "../styles/Sidebar.module.css";
-import EditIcon from "@material-ui/icons/Edit";
-import { Search } from "@material-ui/icons";
 import { Fab } from "@material-ui/core";
-import { auth, db } from "../firebase";
-import AllChats from "./AllChats";
-import { useState } from "react";
-import Header from "./Header";
+import { Search } from "@material-ui/icons";
+import EditIcon from "@material-ui/icons/Edit";
 import Link from "next/link";
+import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { auth, db } from "../firebase";
+import styles from "../styles/Sidebar.module.css";
+import AllChats from "./AllChats";
+import Header from "./Header";
 
 const Sidebar = () => {
   const [user] = useAuthState(auth);

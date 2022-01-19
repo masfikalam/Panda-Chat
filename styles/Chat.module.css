@@ -170,3 +170,9 @@
     font-weight: bold;
   }
 }
+
+@media (min-width: 700px) {
+  .main_chat {
+    height: 90vh !important;
+  }
+}
